@@ -14,34 +14,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        nameOnly()
-        surnameOnly()
-        space()
+        reverse()
+        
         
     }
-    func nameOnly() {
-        var name = "ViktorHolovach"
-        let range = name.index(name.endIndex, offsetBy: -8)..<name.endIndex
-        name.removeSubrange(range)
-        print(name)
+    func reverse() {
+        var reverse = "Ось"
+        reverse.remove(at: reverse.index(reverse.startIndex, offsetBy: 2))
+        reverse.insert("О", at: reverse.startIndex)
+        reverse.remove(at: reverse.index(reverse.startIndex, offsetBy: 2))
+        reverse.insert("с", at: reverse.startIndex)
+        reverse.remove(at: reverse.index(reverse.startIndex, offsetBy: 2))
+        reverse.insert("ь", at: reverse.startIndex)
+        
+        print(reverse)
+        
+        
     }
-    
-    func surnameOnly() {
-        var name = "ViktorHolovach"
-        let start = name.index(name.startIndex, offsetBy: 0)
-        let end = name.index(name.endIndex, offsetBy: -8)
-        let range = start..<end
-        name.removeSubrange(range)
-        print(name)
-    }
-    func space() {
-        var name = "ViktorHolovach"
-        name.insert(" ", at: name.index(name.startIndex, offsetBy: 6))
-        print(name)
-    }
-    
-    
-    
     
     
 }
