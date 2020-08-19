@@ -21,7 +21,8 @@ class ViewController: UIViewController {
         }
         
         print("Name \(name) have \(checkChars) characters")
-        
+        // or:
+        print("Viktor have \(name.count) chars  ")
     }
 }
 
