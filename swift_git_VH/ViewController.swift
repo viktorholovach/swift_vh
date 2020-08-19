@@ -14,14 +14,35 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-       var fathersName = "Владимирович"
-        if fathersName.hasSuffix("ич") {
-            print("\(fathersName) have ич as two last chars" )
-        }
-        
-        
-        
+        nameOnly()
+        surnameOnly()
+        space()
         
     }
+    func nameOnly() {
+        var name = "ViktorHolovach"
+        let range = name.index(name.endIndex, offsetBy: -8)..<name.endIndex
+        name.removeSubrange(range)
+        print(name)
+    }
+    
+    func surnameOnly() {
+        var name = "ViktorHolovach"
+        let start = name.index(name.startIndex, offsetBy: 0)
+        let end = name.index(name.endIndex, offsetBy: -8)
+        let range = start..<end
+        name.removeSubrange(range)
+        print(name)
+    }
+    func space() {
+        var name = "ViktorHolovach"
+        name.insert(" ", at: name.index(name.startIndex, offsetBy: 6))
+        print(name)
+    }
+    
+    
+    
+    
+    
 }
 
