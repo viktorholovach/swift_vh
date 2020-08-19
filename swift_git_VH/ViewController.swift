@@ -14,15 +14,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        var name = "Viktor"
-        var checkChars = 0
-        for _ in name {
-            checkChars += 1
+       var fathersName = "Владимирович"
+        if fathersName.hasSuffix("ич") {
+            print("\(fathersName) have ич as two last chars" )
         }
         
-        print("Name \(name) have \(checkChars) characters")
-        // or:
-        print("Viktor have \(name.count) chars  ")
+        
+        
+        
     }
 }
 
