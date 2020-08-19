@@ -9,9 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
- 
-
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        var name = "Viktor"
+        var checkChars = 0
+        for _ in name {
+            checkChars += 1
+        }
+        
+        print("Name \(name) have \(checkChars) characters")
+        
+    }
 }
 
