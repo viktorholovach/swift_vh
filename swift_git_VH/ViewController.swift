@@ -1,97 +1,61 @@
 //
-//  ViewController.swift
-//  viktorholovach DZ
+//  SwiftRobotControlCenter.swift
+//  MyRobot
 //
-//  Created by Viktor Golovach on 10.08.2020.
-//  Copyright © 2020 Viktor Golovach. All rights reserved.
+//  Created by Ivan Vasilevich on 10/4/14.
+//  Copyright (c) 2014 Ivan Besarab. All rights reserved.
 //
 
 import UIKit
-
-class ViewController: UIViewController {
+//  All robot commands can be founded in GameViewController.h
+class SwiftRobotControlCenter: RobotControlCenter {
     
+    //  Level name setup
     override func viewDidLoad() {
+        levelName = "L55H" //  Level name
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        taskZero()
-        taskOne()
-        taskTwo()
-        taskThree()
-        taskFour()
-        
     }
     
-    func taskZero() {
-        print("--------------------")
-        print("task 0")
+    override func run() {
         
-        let randomNumA = Int.random(in: 1...100)
-        let randomNumB = Int.random(in: 1...100)
         
-        if randomNumA > randomNumB {
-            print("\(randomNumA) is more than \(randomNumB)")
-        } else {
-            print("\(randomNumB) is more than \(randomNumA)")
+        buildPyramid(row: 8)
+    }
+    
+    func buildPyramid(row: Int) {
+        for i in 0...row {
+            putCandy(count: i)
+            uTurn()
         }
     }
     
-    func taskOne() {
-        print("--------------------")
-        print("task 1")
-        
-        var number2 = 3
-        number2 = number2 * number2
-        print("квадрат из числа 3 будет \(number2)")
-        
-        var number3 = 4
-        number3 = number3 * number3 * number3
-        print("куб из числа 4 будет \(number3)")
-    }
-    
-    func taskTwo() {
-        print("--------------------")
-        print("Task 2")
-        print("Возрастание")
-        var numUp = 0
-        for _ in 0...10 {
-            numUp += 1
-            print(numUp)
-        }
-        
-        print("Спадание")
-        var num = 10
-        for _ in 1...num {
-            num -= 1
-            print(num)
+    func putCandy(count: Int) {
+        for _ in 0...count {
+            put()
+            move()
         }
     }
     
-    func taskThree() {
-        print("--------------------")
-        print("task 3")
-        let checkNum = 21
-        for num in 1...checkNum {
-            if checkNum % num == 0 {
-                print(num)
+    func uTurn() {
+        turnRight()
+        turnRight()
+        while frontIsClear {
+            move()
+            if frontIsBlocked {
+                turnLeft()
+                move()
+                turnLeft()
+                break
             }
         }
     }
     
-    func taskFour() {
-        print("--------------------")
-        print("Task 4")
-        let checkNum = 10000
-        for num in 1...checkNum {
-            var sumDev = 0
-            for num1 in 1...num {
-                if num % num1 == 0 {
-                    sumDev += num1
-                    if sumDev == num {
-                        print(num)
-                    }
-                }
-            }
-        }
+    
+    func turnLeft() {
+        turnRight()
+        turnRight()
+        turnRight()
     }
+    
 }
 
