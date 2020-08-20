@@ -12,43 +12,59 @@ class SwiftRobotControlCenter: RobotControlCenter {
     
     //  Level name setup
     override func viewDidLoad() {
-        levelName = "L55H" //  Level name
+        levelName = "L555H" //  Level name
         super.viewDidLoad()
     }
     
     override func run() {
         
+        times()
         
-        buildPyramid(row: 8)
     }
     
-    func buildPyramid(row: Int) {
-        for i in 0...row {
-            putCandy(count: i)
-            uTurn()
+    func times() {
+        while frontIsClear {
+            fillRow()
+            if frontIsBlocked && leftIsBlocked && rightIsBlocked {
+                break
+            }
+            uTurn(condition: frontIsBlocked && facingRight)
+            emptyRow()
+            if frontIsBlocked && leftIsBlocked {
+                break
+            }
+            uTurn(condition: frontIsBlocked && facingRight)
+            
         }
     }
     
-    func putCandy(count: Int) {
-        for _ in 0...count {
+    
+    func fillRow() {
+        while frontIsClear {
             put()
             move()
-        }
-    }
-    
-    func uTurn() {
-        turnRight()
-        turnRight()
-        while frontIsClear {
-            move()
             if frontIsBlocked {
-                turnLeft()
-                move()
-                turnLeft()
-                break
+                put()
             }
         }
     }
+    
+    func emptyRow() {
+        while frontIsClear {
+            move()
+        }
+    }
+    
+    func uTurn(condition: Bool) {
+        condition ? turnRight() : turnLeft()
+        if frontIsClear {
+            move()
+        }
+        condition ? turnRight() : turnLeft()
+    }
+    
+    
+    
     
     
     func turnLeft() {
