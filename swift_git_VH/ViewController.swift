@@ -1,77 +1,69 @@
 //
-//  SwiftRobotControlCenter.swift
-//  MyRobot
+//  ViewController.swift
+//  viktorholovach DZ
 //
-//  Created by Ivan Vasilevich on 10/4/14.
-//  Copyright (c) 2014 Ivan Besarab. All rights reserved.
+//  Created by Viktor Golovach on 10.08.2020.
+//  Copyright © 2020 Viktor Golovach. All rights reserved.
 //
 
 import UIKit
-//  All robot commands can be founded in GameViewController.h
-class SwiftRobotControlCenter: RobotControlCenter {
+
+class ViewController: UIViewController {
     
-    //  Level name setup
     override func viewDidLoad() {
-        levelName = "L555H" //  Level name
         super.viewDidLoad()
-    }
-    
-    override func run() {
+        // Do any additional setup after loading the view.
         
-        times()
+        
+        reverseString()
+        
+        
+        
         
     }
     
-    func times() {
-        while frontIsClear {
-            fillRow()
-            if frontIsBlocked && leftIsBlocked && rightIsBlocked {
-                break
-            }
-            uTurn(condition: frontIsBlocked && facingRight)
-            emptyRow()
-            if frontIsBlocked && leftIsBlocked {
-                break
-            }
-            uTurn(condition: frontIsBlocked && facingRight)
-            
+    
+    func reverseString() {
+        let str = "Mountains"
+        var reversedStr = ""
+        for char in str {
+            reversedStr = "\(char)" + reversedStr
         }
+        print(reversedStr)
+        
+        
+        
+        
+        
     }
-    
-    
-    func fillRow() {
-        while frontIsClear {
-            put()
-            move()
-            if frontIsBlocked {
-                put()
-            }
-        }
-    }
-    
-    func emptyRow() {
-        while frontIsClear {
-            move()
-        }
-    }
-    
-    func uTurn(condition: Bool) {
-        condition ? turnRight() : turnLeft()
-        if frontIsClear {
-            move()
-        }
-        condition ? turnRight() : turnLeft()
-    }
-    
-    
-    
-    
-    
-    func turnLeft() {
-        turnRight()
-        turnRight()
-        turnRight()
-    }
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
