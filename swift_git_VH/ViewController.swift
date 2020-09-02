@@ -15,82 +15,41 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-       nameShift()
-        secondVersion()
+        calculator()
+        
     }
     
-    
-    func nameShift() {
-        let name = "OliverKing"
-        var splitName = name
-        var indexCapital: [Int] = []
-        for (index, element) in name.enumerated() {
-            if element.isUppercase {
-                indexCapital.append(index)
+    func calculator () {
+        
+        let numbers = "1234567"
+        let reversedNumbers = String(numbers.reversed())
+        var calculatorValue = ""
+        var iteration = 1
+        
+        for (index, elements) in reversedNumbers.enumerated() {
+            
+            if iteration == 3 && index != reversedNumbers.count - 1 {
+                calculatorValue += String(elements) + ","
+                iteration = 1
+                continue
             }
+            
+            calculatorValue += String(elements)
+            iteration += 1
         }
+        let result = String(calculatorValue.reversed())
         
-        let indexToSplit: Int = indexCapital.last!
-        
-        splitName.insert(" ", at: splitName.index(splitName.startIndex, offsetBy: indexToSplit))
-        
-        let nameOnly = name.prefix(indexToSplit)
-        let startfathersName = name.index(name.startIndex, offsetBy: indexToSplit)
-        let finnishFathersName = name.endIndex
-        let fathersName = startfathersName..<finnishFathersName
-        let myString = name[fathersName]
+        print(result)
         
         
         
-        print(splitName)
-        print(nameOnly)
-        print(myString)
         
         
         
     }
-    
-    func secondVersion() {
-        let name = "ViktorHolovach"
-        var fullName = ""
-        var nameOnly = ""
-        var fathersName = ""
-        for char in name {
-            if char.isUppercase {
-                fullName += " " + String(char)
-                fathersName = String(char)
-                nameOnly += String(char)
-            }
-            if char.isLowercase {
-                fullName += String(char)
-                fathersName += String(char)
-            }
-        }
-        
-        fullName.remove(at: fullName.startIndex)
-        print(fullName)
-        print(fathersName)
-        print("\(nameOnly) cant pull name =( ")
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 }
-
-
-
 
 
 
