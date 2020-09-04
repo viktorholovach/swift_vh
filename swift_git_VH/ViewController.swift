@@ -13,74 +13,114 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        checkNumber()
-        squareAndCube()
-        UpDownCount()
-        deviders()
-        perfectNumber()
-        
+        taskOne()
+        taskTwo()
+        taskThree()
+        taskFour()
+       
     }
-    func checkNumber() {
-        let randomNumberX = Int.random(in: 1...100)
-        let randomNumberY = Int.random(in: 1...100)
+    func taskOne() {
+        print("--------------------")
+        print("task 1")
         
-        if randomNumberX > randomNumberY {
-            print("number \(randomNumberX) bigger then \(randomNumberY)")
-        } else {
-            print("number \(randomNumberY) bigger then \(randomNumberX)")
+        let cash = 24
+        let percent = 0.06
+        let fromYear = 1826
+        let toYear = 2020
+        let amountOfYears = toYear - fromYear
+        var moneyAfterDeposit = 0
+        print("\(amountOfYears) - years in bank")
+        
+        //fromula to count = moneyAfterDeposit = cash * (1 + percent) возвести в стпенеь 194
+        // Формула сложного процента с ежигодным начислением
+        
+        let onePlusPercent = 1 + percent
+        print("\(onePlusPercent) - first step in fromula")
+        var partOfFormula = 1.0
+        
+        for _ in 1...amountOfYears {
+            partOfFormula *= onePlusPercent
         }
+        print("\(partOfFormula) = проценты возведенные в \(amountOfYears)")
+        
+        // or we can use b = pow(a, 194)
+        
+        moneyAfterDeposit = Int(Double(cash) * partOfFormula)
+        print("with 24$ after 194 under 12% yearly you will get \(moneyAfterDeposit)$ ")
     }
     
+    func taskTwo() {
+        print("--------------------")
+        print("task 2")
+        
+        let grants = 700.0
+        let expenses = 1000.0
+        let percent = 0.03
+        let mounth = 10
+        var moneyNeeded = 0
+        
+        //fromula to count = expensesWithPercents = expenses * (1 + percent)
+        // Формула сложного процента с ежимесячным начислением
+        
+        let onePlusPercent = 1 + percent
+        print("\(onePlusPercent) - first step in fromula")
+        
+        var expensesforTenMounth = expenses * onePlusPercent
+        
+        for _ in 1...9 {
+            expensesforTenMounth = onePlusPercent * (expensesforTenMounth + expenses)
+        }
+        print("\(expensesforTenMounth)UAH - expensen for 10 mounth")
+        
+        var grantsForTenMounth = 0.0
+        for _ in 1...10 {
+            grantsForTenMounth += grants
+        }
+        print("\(grantsForTenMounth)UAH - grants for 10 mounth")
+        
+        moneyNeeded = Int(expensesforTenMounth - grantsForTenMounth)
+        
+        print("\(moneyNeeded)UAH - money needed for 10 mounth considering expenses and grants")
+    }
     
-    func squareAndCube() {
-        let number = 3
-        let squareNum = number * number
-        let cubeNum = squareNum * number
-        print("square number \(squareNum)")
-        print("cube number \(cubeNum)")
+    func taskThree() {
+        
+        print("--------------------")
+        print("task 3")
+        var savings = 2400.0
+        let grants = 700.0
+        var expenses = 1000.0
+        let percentPerMonth = 0.03
+        var mounthToLive = 0
+        
+        while savings > expenses {
+            savings = savings - expenses + grants
+            expenses = percentPerMonth * expenses + expenses
+            mounthToLive += 1
+        }
+        print("\(mounthToLive) month to live with savings and grants")
         
     }
-    func UpDownCount() {
-        print("numbers down count")
-        var numDown = 10
-        while numDown != 1 {
-            numDown -= 1
-            print(numDown)
-        }
+    
+    func taskFour() {
+        print("--------------------")
+        print("task 4")
+        var checkNumber = 3456
+        var num = 0
+        var digit = 0
         
-        print("numbers up count")
-        var numUp = 0
-        while numUp != 10 {
-            numUp += 1
-            print(numUp)
+        while checkNumber > 0 {
+            digit = checkNumber % 10
+            print(digit)
+            checkNumber = checkNumber / 10
+            print(checkNumber)
+            num = num * 10
+            print(num)
+            num = num + digit
         }
-    }
-    
-    func deviders() {
-        let numbers = 28
-        for num in 1...numbers {
-            if numbers % num == 0 {
-                print("\(num) is devider")
-            }
-        }
-    }
-    
-    func perfectNumber() {
-        let number = 10000
-        for num in 1...number {
-            var summOfDeviders = 0
-            for num1 in 1...num {
-                if num % num1 == 0 {
-                    summOfDeviders += num1
-                    if summOfDeviders == num {
-                        print(num)
-                    }
-                }
-            }
-        }
-    }
+        print(num)
         
+       
+        }
     
-
 }
