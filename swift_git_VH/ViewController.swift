@@ -13,24 +13,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        nameCheck()
-    }
-    func nameCheck() {
-        var name = "ViktorHolovach"
-        var capitalIndex: [Int] = []
-        for (index, char) in name.enumerated() {
-            if char.isUppercase {
-                capitalIndex.append(index)
-            }
-        }
-        let indexToSplit = capitalIndex.last!
         
-        let nameOnly = name.prefix(indexToSplit)
-        print(nameOnly)
-        let fathersName = name.suffix(indexToSplit + 2)
-        print(fathersName)
-        name.insert(" ", at: name.index(name.startIndex, offsetBy: indexToSplit))
-        print(name)
+        mirroredWord()
+    }
+    
+    
+    func mirroredWord() {
+        let word = "Interstellar"
+        var mirroredWord = ""
+        for char in word {
+            mirroredWord = String("\(char)") + mirroredWord
+        }
+        print(mirroredWord)
+        
     }
     
 }
