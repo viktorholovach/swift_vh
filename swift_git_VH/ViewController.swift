@@ -13,13 +13,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        nameCount()
+        nameCheck()
     }
-    func nameCount() {
-        let name = "Viktor Holovach"
-        print(name.count)
+    func nameCheck() {
+        let name = "Владимирович"
+        if name.hasSuffix("ич"){
+            print("\(name) contain ич")
+        }
+        
     }
-    
     
 }
 
