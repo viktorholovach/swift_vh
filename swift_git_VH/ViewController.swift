@@ -9,12 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        nameCount()
     }
-
-
+    func nameCount() {
+        let name = "Viktor Holovach"
+        print(name.count)
+    }
+    
+    
 }
+
+
 
