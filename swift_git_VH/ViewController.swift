@@ -14,17 +14,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        mirroredWord()
+        thousandsSeparator()
     }
     
     
-    func mirroredWord() {
-        let word = "Interstellar"
-        var mirroredWord = ""
-        for char in word {
-            mirroredWord = String("\(char)") + mirroredWord
+    func thousandsSeparator() {
+        let numbers = "1234567"
+        let reversedNumber = numbers.reversed()
+        var numberWithThousandSeparator = ""
+        var count = 0
+        for num in reversedNumber {
+            numberWithThousandSeparator += String(num)
+            count += 1
+            if count == 3 {
+                numberWithThousandSeparator.append(",")
+                count = 0
+            }
         }
-        print(mirroredWord)
+        print(String(numberWithThousandSeparator.reversed()))
         
     }
     
