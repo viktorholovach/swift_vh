@@ -14,28 +14,59 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        thousandsSeparator()
+        password(password: "Qwerty1234!@#$%")
     }
     
     
-    func thousandsSeparator() {
-        let numbers = "1234567"
-        let reversedNumber = numbers.reversed()
-        var numberWithThousandSeparator = ""
+    func password(password: String) {
         var count = 0
-        for num in reversedNumber {
-            numberWithThousandSeparator += String(num)
-            count += 1
-            if count == 3 {
-                numberWithThousandSeparator.append(",")
-                count = 0
+        var passwordGradeNum = 0
+        var passwordGradeLetter = ""
+        for char in password {
+            if count == 1 {
+                continue
+            }
+            if char.isNumber {
+                count += 1
+                passwordGradeNum += 1
+                passwordGradeLetter += " a)"
             }
         }
-        print(String(numberWithThousandSeparator.reversed()))
-        
+        count = 0
+        for char in password {
+            if count == 1 {
+                continue
+            }
+            if char.isUppercase {
+                count += 1
+                passwordGradeNum += 1
+                passwordGradeLetter += " b)"
+            }
+        }
+        count = 0
+        for char in password {
+            if count == 1 {
+                continue
+            }
+            if char.isLowercase {
+                count += 1
+                passwordGradeNum += 1
+                passwordGradeLetter += " c)"
+            }
+        }
+        count = 0
+        for char in password {
+            if count == 1 {
+                continue
+            }
+            if char.isSymbol {
+                count += 1
+                passwordGradeNum += 1
+                passwordGradeLetter += " d)"
+            }
+        }
+        let passwordPowerd = String(passwordGradeNum) + passwordGradeLetter
+        print(passwordPowerd)
     }
     
 }
-
-
-
