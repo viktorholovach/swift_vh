@@ -14,59 +14,47 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        password(password: "Qwerty1234!@#$%")
+        password(password: "Qwerty1234!@#$%^&*(")
     }
-    
     
     func password(password: String) {
-        var count = 0
-        var passwordGradeNum = 0
-        var passwordGradeLetter = ""
+        
+        var passwordGrade = 0
+        var numInPassword = false
+        var upperCaseInPassword = false
+        var lowerCaseInPassword = false
+        var symbolInPassword = false
         for char in password {
-            if count == 1 {
-                continue
+            if !numInPassword && char.isNumber {
+                passwordGrade += 1
+                numInPassword = true
             }
-            if char.isNumber {
-                count += 1
-                passwordGradeNum += 1
-                passwordGradeLetter += " a)"
+            if !upperCaseInPassword && char.isUppercase {
+                passwordGrade += 1
+                upperCaseInPassword = true
             }
+            if !lowerCaseInPassword && char.isLowercase {
+                passwordGrade += 1
+                lowerCaseInPassword = true
+            }
+            if !symbolInPassword && char.isSymbol {
+                passwordGrade += 1
+                symbolInPassword = true
+            }
+            
         }
-        count = 0
-        for char in password {
-            if count == 1 {
-                continue
-            }
-            if char.isUppercase {
-                count += 1
-                passwordGradeNum += 1
-                passwordGradeLetter += " b)"
-            }
-        }
-        count = 0
-        for char in password {
-            if count == 1 {
-                continue
-            }
-            if char.isLowercase {
-                count += 1
-                passwordGradeNum += 1
-                passwordGradeLetter += " c)"
-            }
-        }
-        count = 0
-        for char in password {
-            if count == 1 {
-                continue
-            }
-            if char.isSymbol {
-                count += 1
-                passwordGradeNum += 1
-                passwordGradeLetter += " d)"
-            }
-        }
-        let passwordPowerd = String(passwordGradeNum) + passwordGradeLetter
-        print(passwordPowerd)
+        print(passwordGrade)
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
+
+
