@@ -14,40 +14,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        password(password: "Qwerty1234!@#$%^&*(")
-    }
-    
-    func password(password: String) {
+        array()
         
-        var passwordGrade = 0
-        var numInPassword = false
-        var upperCaseInPassword = false
-        var lowerCaseInPassword = false
-        var symbolInPassword = false
-        for char in password {
-            if !numInPassword && char.isNumber {
-                passwordGrade += 1
-                numInPassword = true
-            }
-            if !upperCaseInPassword && char.isUppercase {
-                passwordGrade += 1
-                upperCaseInPassword = true
-            }
-            if !lowerCaseInPassword && char.isLowercase {
-                passwordGrade += 1
-                lowerCaseInPassword = true
-            }
-            if !symbolInPassword && char.isSymbol {
-                passwordGrade += 1
-                symbolInPassword = true
-            }
-            
-        }
-        print(passwordGrade)
     }
     
-    
-    
+    func array() {
+        let unsortedArray = [9, 1, 2, 5, 1, 7]
+        let noDuplicates = Array(Set(unsortedArray))
+        var sortedArray = noDuplicates
+        print(sortedArray)
+        for x in 1..<sortedArray.count {
+            var y = x
+            while y > 0 && sortedArray[y] < sortedArray[y - 1] {
+                sortedArray.swapAt(y - 1, y)
+                y -= 1
+            }
+        }
+        print(sortedArray)
+    }
     
     
     
@@ -55,6 +39,28 @@ class ViewController: UIViewController {
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
