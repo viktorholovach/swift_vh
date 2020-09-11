@@ -21,16 +21,14 @@ class ViewController: UIViewController {
         
         var checkedArray = [String]()
         for element in arrayToCheck {
-            if element.contains(checkContains){
-                checkedArray.append(element)
-            } else if element.contains(checkAnotherContains) {
+            if element.contains(checkContains) || element.contains(checkAnotherContains) {
                 checkedArray.append(element)
             }
         }
         print(checkedArray)
     }
     
-        
+    
     
     
     
