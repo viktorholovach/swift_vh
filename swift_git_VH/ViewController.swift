@@ -14,35 +14,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        transliteWord(input: "Лиииииза")
-        
+        searchInArray(arrayToCheck: ["lada", "damba", "reebok", "adidas", "lalala", "lak", "Claus"], checkContains: "da", checkAnotherContains: "la")
     }
     
-    func transliteWord(input: String)  {
+    func searchInArray(arrayToCheck: [String], checkContains: String, checkAnotherContains: String)  {
         
-        let dictionary = [
-            "В": "V",
-            "т": "t",
-            "Л": "L",
-            "и": "i",
-            "з": "z",
-            "а": "a",
-            "о": "o",
-            "р": "r",
-            "к": "k"
-        ]
-        var transliteWord = ""
-        
-        for char in input {
-            for (key, element) in dictionary {
-                if key == String(char) {
-                    transliteWord.append(element)
-                }
+        var checkedArray = [String]()
+        for element in arrayToCheck {
+            if element.contains(checkContains){
+                checkedArray.append(element)
+            } else if element.contains(checkAnotherContains) {
+                checkedArray.append(element)
             }
         }
-        
-        print(transliteWord)
+        print(checkedArray)
     }
+    
+        
+    
     
     
     
