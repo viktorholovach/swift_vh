@@ -14,23 +14,34 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        array()
+        transliteWord(input: "Лиииииза")
         
     }
     
-    func array() {
-        let unsortedArray = [9, 1, 2, 5, 1, 7]
-        let noDuplicates = Array(Set(unsortedArray))
-        var sortedArray = noDuplicates
-        print(sortedArray)
-        for x in 1..<sortedArray.count {
-            var y = x
-            while y > 0 && sortedArray[y] < sortedArray[y - 1] {
-                sortedArray.swapAt(y - 1, y)
-                y -= 1
+    func transliteWord(input: String)  {
+        
+        let dictionary = [
+            "В": "V",
+            "т": "t",
+            "Л": "L",
+            "и": "i",
+            "з": "z",
+            "а": "a",
+            "о": "o",
+            "р": "r",
+            "к": "k"
+        ]
+        var transliteWord = ""
+        
+        for char in input {
+            for (key, element) in dictionary {
+                if key == String(char) {
+                    transliteWord.append(element)
+                }
             }
         }
-        print(sortedArray)
+        
+        print(transliteWord)
     }
     
     
