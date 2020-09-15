@@ -14,93 +14,35 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        badWords()
-        anotherWay()
+        foo(array: [1, 3, 10, 92, 100, 6, 88])
     }
     
-    func badWords() {
-        let input = "My pick is great, my pick is very great"
-        let wordsToChange = ["pick", "great", "is"]
-        let arrayInput = input.replacingOccurrences(of: ",", with: " ,").replacingOccurrences(of: ".", with: " . ").replacingOccurrences(of: "\n", with: " \n ").components(separatedBy: " ")
-        var arrayInputWithStars : [String] = []
-        for word in arrayInput {
-            if wordsToChange.contains(word) {
-                var stars = ""
-                for _ in 0..<(word.count) {
-                    stars.append("*")
-                }
-                arrayInputWithStars.append(stars)
-            }
-            else {
-                arrayInputWithStars.append(word)
-            }
-        }
-        let stringOutputWithStars = arrayInputWithStars.joined(separator: " ").replacingOccurrences(of: " ,", with: ",").replacingOccurrences(of: " . ", with: ".").replacingOccurrences(of: " \n ", with: "\n")
-        print(stringOutputWithStars)
-        
-    }
-    
-    
-    func anotherWay() {
-     //hardcode 
-       let input = "My pick is great, my pick is very great"
-        let filterWords = ["pick", "great", "is"]
-        var firstBadWordStars = ""
-        var stars = ""
-        var outputWithStars = ""
-        
-        for x in 0..<filterWords.count {
-            if x == 0 && input.contains(filterWords[x]) {
-                for _ in 0..<filterWords[x].count {
-                    stars += "*"
-                    firstBadWordStars = input.replacingOccurrences(of: filterWords[x], with: stars)
-                }
-                stars = ""
-            }
-            if x == 1 && firstBadWordStars.contains(filterWords[x]) {
-                for _ in 0..<filterWords[x].count {
-                    stars += "*"
-                    outputWithStars = firstBadWordStars.replacingOccurrences(of: filterWords[x], with: stars)
-                    
+    func array() {
+        let unsortedArray = [9, 1, 2, 5, 1, 7]
+        let noDuplicates = Array(Set(unsortedArray))
+        var sortedArray = noDuplicates
+        print(sortedArray)
+        for i in 0..<sortedArray.count {
+            for j in 1..<sortedArray.count - i {
+                if sortedArray[j] < sortedArray[j - 1] {
+                    sortedArray.swapAt(j, j - 1)
                 }
             }
         }
         
-        print(outputWithStars)
+        print(sortedArray)
+        
+    }
+
+    func foo(array: [Int]) {
+        var array = array
+        for i in 0..<array.count {
+            for j in 1..<array.count - i {
+                if array[j] < array[j - 1] {
+                    array.swapAt(j, j - 1)
+                }
+            }
+        }
+        print(array)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
