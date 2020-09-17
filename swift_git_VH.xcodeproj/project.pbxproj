@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36ABDB402513956500E4C7C4 /* CoffeeMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ABDB3F2513956500E4C7C4 /* CoffeeMachine.swift */; };
 		36E9E5FC24ED5EAD001C25CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E9E5FB24ED5EAD001C25CE /* AppDelegate.swift */; };
 		36E9E5FE24ED5EAD001C25CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E9E5FD24ED5EAD001C25CE /* SceneDelegate.swift */; };
 		36E9E60024ED5EAD001C25CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E9E5FF24ED5EAD001C25CE /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36ABDB3F2513956500E4C7C4 /* CoffeeMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMachine.swift; sourceTree = "<group>"; };
 		36E9E5F824ED5EAC001C25CE /* swift_git_VH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swift_git_VH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36E9E5FB24ED5EAD001C25CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36E9E5FD24ED5EAD001C25CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				36E9E5FB24ED5EAD001C25CE /* AppDelegate.swift */,
 				36E9E5FD24ED5EAD001C25CE /* SceneDelegate.swift */,
 				36E9E5FF24ED5EAD001C25CE /* ViewController.swift */,
+				36ABDB3F2513956500E4C7C4 /* CoffeeMachine.swift */,
 				36E9E60124ED5EAD001C25CE /* Main.storyboard */,
 				36E9E60424ED5EB0001C25CE /* Assets.xcassets */,
 				36E9E60624ED5EB0001C25CE /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				36E9E60024ED5EAD001C25CE /* ViewController.swift in Sources */,
 				36E9E5FC24ED5EAD001C25CE /* AppDelegate.swift in Sources */,
 				36E9E5FE24ED5EAD001C25CE /* SceneDelegate.swift in Sources */,
+				36ABDB402513956500E4C7C4 /* CoffeeMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

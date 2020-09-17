@@ -9,36 +9,35 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let UICoffeeMachine = CoffeeMachine()
+    @IBOutlet weak var coffeeMachineOutput: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-       
-  nameCheck()
+    
+    @IBAction func espresso(_ sender: Any) {
+        coffeeMachineOutput.text = UICoffeeMachine.espresso()
+        
     }
-  
-    
-    func nameCheck() {
-    var name = "SteveJobs"
-            var capitalIndex: [Int] = []
-            for (index, char) in name.enumerated() {
-                if char.isUppercase {
-                    capitalIndex.append(index)
-                }
-            }
-            let indexToSplit = capitalIndex.last!
-
-            let nameOnly = name.prefix(indexToSplit)
-            print(nameOnly)
-        let startFathersNameIndex = name.index(name.startIndex, offsetBy:indexToSplit)
-        let endFathersNameIndex = name.endIndex
-        let rangeFathersNameIndex = startFathersNameIndex..<endFathersNameIndex
-        let fathersName = name[rangeFathersNameIndex]
-            print(fathersName)
-            name.insert(" ", at: name.index(name.startIndex, offsetBy: indexToSplit))
-            print(name)
-        }
-
+    @IBAction func cappuccino(_ sender: Any) {
+        coffeeMachineOutput.text = UICoffeeMachine.cappuccino()
+    }
+    @IBAction func americano(_ sender: Any) {
+        coffeeMachineOutput.text = UICoffeeMachine.americano()
+    }
+    @IBAction func latteMacchiato(_ sender: Any) {
+        coffeeMachineOutput.text = UICoffeeMachine.latteMacchiato()
+    }
+    @IBAction func addWater(_ sender: Any) {
+        UICoffeeMachine.addWater()
+        coffeeMachineOutput.text = UICoffeeMachine.addWater()
+    }
+    @IBAction func addMilk(_ sender: Any) {
+        UICoffeeMachine.addMilk()
+        coffeeMachineOutput.text = UICoffeeMachine.addMilk()
+    }
+    @IBAction func addCoffeeBeans(_ sender: Any) {
+        UICoffeeMachine.addCoffeeBeans()
+        coffeeMachineOutput.text = UICoffeeMachine.addCoffeeBeans()
+    }
     
     
     
@@ -47,6 +46,10 @@ class ViewController: UIViewController {
     
     
     
-
+    
+    
+    
+    
+    
 }
 
