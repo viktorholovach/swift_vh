@@ -9,40 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let UICoffeeMachine = CoffeeMachine()
-    @IBOutlet weak var coffeeMachineOutput: UILabel!
+    let myCoffeeMachine = CoffeeMachine()
     
+    @IBOutlet weak var coffeeOutput: UILabel!
     
-    @IBAction func espresso(_ sender: Any) {
-        coffeeMachineOutput.text = UICoffeeMachine.espresso()
-        
+    @IBAction func makeEspresso(_ sender: Any) {
+        coffeeOutput.text = myCoffeeMachine.espresso()
     }
-    @IBAction func cappuccino(_ sender: Any) {
-        coffeeMachineOutput.text = UICoffeeMachine.cappuccino()
+    @IBAction func makeAmericano(_ sender: Any) {
+        coffeeOutput.text = myCoffeeMachine.americano()
     }
-    @IBAction func americano(_ sender: Any) {
-        coffeeMachineOutput.text = UICoffeeMachine.americano()
+    @IBAction func makeCappuccino(_ sender: Any) {
+        coffeeOutput.text = myCoffeeMachine.cappuccino()
     }
-    @IBAction func latteMacchiato(_ sender: Any) {
-        coffeeMachineOutput.text = UICoffeeMachine.latteMacchiato()
-    }
-    @IBAction func addWater(_ sender: Any) {
-        UICoffeeMachine.addWater()
-        coffeeMachineOutput.text = UICoffeeMachine.addWater()
-    }
-    @IBAction func addMilk(_ sender: Any) {
-        UICoffeeMachine.addMilk()
-        coffeeMachineOutput.text = UICoffeeMachine.addMilk()
-    }
-    @IBAction func addCoffeeBeans(_ sender: Any) {
-        UICoffeeMachine.addCoffeeBeans()
-        coffeeMachineOutput.text = UICoffeeMachine.addCoffeeBeans()
+    @IBAction func makeLatteMacchiato(_ sender: Any) {
+        coffeeOutput.text = myCoffeeMachine.latteMacchiato()
     }
     
+    @IBAction func toAddCoffee(_ sender: Any) {
+        coffeeOutput.text = myCoffeeMachine.addCoffeeBeans()
+    }
     
-    
-    
-    
+    @IBAction func toAddWater(_ sender: Any) {
+        coffeeOutput.text = myCoffeeMachine.addWater()
+    }
+    @IBAction func toAddMilk(_ sender: Any) {
+        coffeeOutput.text = myCoffeeMachine.addMilk()
+    }
+    @IBAction func toRemoveBin(_ sender: Any) {
+        coffeeOutput.text = myCoffeeMachine.removeBin()
+    }
     
     
     
